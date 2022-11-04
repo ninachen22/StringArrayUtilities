@@ -1,5 +1,8 @@
 package com.zipcodewilmington;
 
+import java.sql.Array;
+import java.util.Arrays;
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -25,7 +28,7 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return null;
+        return array[array.length - 1];
     }
 
     /**
@@ -33,7 +36,7 @@ public class StringArrayUtils {
      * @return second to last element in specified array
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
-        return null;
+        return array[array.length - 2];
     }
 
     /**
@@ -42,6 +45,11 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
+        for (int i = 0; i <= array.length - 1; i++) {
+            if (array[i].equals(value)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -50,8 +58,14 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
-    }
+        String[] newArray = new String[array.length];
+
+        for (int i = 0; i <= array.length - 1; i++) { //goes through the string array starting at sub 0 to the last index by increments of 1
+            newArray[i] = array[(array.length - i) - 1]; //new array beginning at sub 0 is replaced with the og array's decrementing by the i value - 1
+        }
+        return newArray;
+//        return null;
+}
 
     /**
      * @param array array of String objects
