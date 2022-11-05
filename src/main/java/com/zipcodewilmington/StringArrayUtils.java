@@ -3,6 +3,7 @@ package com.zipcodewilmington;
 import sun.security.util.ArrayUtil;
 
 import java.sql.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -130,14 +131,16 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        String[] newArr = new String[array.length];
+        ArrayList<String> newArr = new ArrayList<>();
+//        String[] newArr = new String[array.length]; //fixed length so didn't work
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] != valueToRemove) {
-                newArr[i] = array[i];
+                newArr.add(array[i]);
+//                newArr[i] = array[i];
             }
         }
-        return newArr;
+        return newArr.toArray(new String[0]);
 //        return null;
     }
 
