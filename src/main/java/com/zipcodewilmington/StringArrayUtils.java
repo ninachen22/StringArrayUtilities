@@ -1,5 +1,7 @@
 package com.zipcodewilmington;
 
+import sun.security.util.ArrayUtil;
+
 import java.sql.Array;
 import java.util.Arrays;
 
@@ -72,7 +74,20 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        return false;
+         if (Arrays.equals(array, reverse(array))) { //called method from prev problem
+             return true;
+         }
+         return false;
+//        String[] toCompare = new String[array.length];
+//
+//        for (int i = 0; i <= array.length - 1; i++) {
+//            toCompare[i] = array[(array.length - i) - 1]; {
+//                if (Arrays.equals(array, toCompare)) {
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
     }
 
     /**
@@ -80,7 +95,16 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+        String arrayStr = Arrays.toString(array).toLowerCase();
+        String abcs = "abcdefghijklmnopqrstuvwxyz";
+
+        for (int i = 0; i < abcs.length(); i++) {
+            if (!arrayStr.contains(String.valueOf(abcs.charAt(i)))) {
+                return false;
+            }
+        }
+        return true;
+//        return false;
     }
 
     /**
@@ -89,7 +113,15 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int freq = 0;
+
+        for (int i = 0; i <= array.length - 1; i++) {
+            if (array[i].contains(value)) {
+                freq++;
+            }
+        }
+        return freq;
+//        return 0;
     }
 
     /**
@@ -98,7 +130,15 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        String[] newArr = new String[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != valueToRemove) {
+                newArr[i] = array[i];
+            }
+        }
+        return newArr;
+//        return null;
     }
 
     /**
